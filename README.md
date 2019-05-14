@@ -16,26 +16,26 @@ A command line app in php
 
         php tasks.php MigrateTables
 		
-1. To set employee details run this command
+1. To set employee details, run this command:
 
 		php tasks.php SET:empdata 1 "Jack Petter" "192.168.10.10"
 		
-1. To get employee details run this command
+1. To get employee details, run this command:
 
 		php tasks.php GET:empdata "192.168.10.10"
 		
-1. To unset employee details run this command
+1. To unset employee details, run this command:
 
 		php tasks.php UNSET:empdata "192.168.10.10"	
 
-1. To set employee' web history run this command
+1. To set employee' web history, run this command:
 
 		php tasks.php SET:empwebhistory "192.168.10.10" "http://google.com"
 		
-1. To get employee details run this command
+1. To get employee' web history, run this command:
 
 		php tasks.php GET:empwebhistory "192.168.10.10"
 		
-1. To unset employee details run this command
+1. To unset employee' web history, run this command:
 
 		php tasks.php UNSET:empwebhistory "192.168.10.10"
