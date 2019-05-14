@@ -34,7 +34,7 @@ class GetEmpDataCommand extends Command
 
         if ($empDetails = $this->database->fetch('employees', $where)) {
             $display = ['employee' => $empDetails];
-            return $output->writeln(json_encode($display));
+            return $output->writeln(json_encode($display, JSON_PRETTY_PRINT));
         } else {
             return $output->writeln('<info>NULL</info>');
         }

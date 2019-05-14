@@ -28,29 +28,29 @@ class CreateTable extends Command
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $empDetailsQuery = "CREATE TABLE `employees` (
-                        `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-                        `emp_id` VARCHAR(50) NOT NULL DEFAULT '',
-                        `emp_name` VARCHAR(50) NOT NULL DEFAULT '',
-                        `ip_address` VARCHAR(12) NOT NULL DEFAULT '',
-                        PRIMARY KEY (id) 
-                    )";
+        $empDetailsQuery = "DROP TABLE IF EXISTS `employees`;
+                            CREATE TABLE IF NOT EXISTS `employees` (
+                              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                              `emp_id` varchar(50) NOT NULL DEFAULT '',
+                              `emp_name` varchar(50) NOT NULL DEFAULT '',
+                              `ip_address` varchar(15) NOT NULL DEFAULT '',
+                              PRIMARY KEY (`id`)
+                            )";
 
         try {
-
             $this->database->rawQuery($empDetailsQuery);
         } catch (\Exception $ex) {
             $output->writeln('<info>' . $ex->getMessage() . '!</info>');
         }
 
-        $empWebHistory = "CREATE TABLE `employee_web_history` (
-                        `ip_address` VARCHAR(12) NOT NULL DEFAULT '',
-                        `url` VARCHAR(12) NOT NULL DEFAULT '',
-                        `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-                    )";
+        $empWebHistory = "DROP TABLE IF EXISTS `employee_web_history`;
+                            CREATE TABLE IF NOT EXISTS `employee_web_history` (
+                              `ip_address` varchar(15) NOT NULL DEFAULT '',
+                              `url` varchar(200) NOT NULL DEFAULT '',
+                              `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+                            )";
 
         try {
-
             $this->database->rawQuery($empWebHistory);
         } catch (\Exception $ex) {
             $output->writeln('<info>' . $ex->getMessage() . '!</info>');

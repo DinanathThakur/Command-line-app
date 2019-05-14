@@ -40,7 +40,7 @@ class GetEmpWebHistoryCommand extends Command
             }
             $display['employeewebhistory'] = ['ip_address' => $ip_address, 'urls' => $urls];
 
-            return $output->writeln(json_encode($display));
+            return $output->writeln(json_encode($display, JSON_PRETTY_PRINT));
         } else {
             return $output->writeln('<info>NULL</info>');
         }
